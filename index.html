@@ -5,11 +5,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog CRUD</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Hola Mundo</h1>
+    <!-- HEADER -->
+    <header class="header">
+        <input class="header__checkbox" type="checkbox" id="open-menu">
+        <label class="header__open-nav-button" for="open-menu" role="button"><i class="fa-solid fa-bars"></i></label>
+
+        <div class="header__logo-container">
+            <span class="header__logo">Blog CRUD</span>
+        </div>
+
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__nav-link"><a href="#">DASHBOARD</a></li>
+                <li class="header__nav-link"><a href="#">MENU</a></li>
+                <li class="header__nav-link"><a href="#">ARTICLES</a></li>
+                <li class="header__nav-link"><a href="#"> <i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <section class="article__container">
+            <article class="article">
+                <h2 class="article__tittle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa aliquam
+                    sed
+                    maxime!</h2>
+                <img class="article__image" src="https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg"
+                    alt="">
+
+                <p class="article__copy">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quibusdam
+                    delectus eum cum repellat
+                    sequi ipsum libero optio itaque in, quod obcaecati dolorum error excepturi quas natus. Perferendis,
+                    omnis facilis.</p>
+
+                <div class="article__info">
+                    <span class="article__author">Topic: <a class="author" href="#">Health</a></span>
+                    <span class="article__views"><i class="fa-regular fa-eye"></i> 12</span>
+                </div>
+
+                <div class="article__funtions">
+                    <div class="article__funtions">
+                        <a class="article__cta" href="#">Leer Más...</a>
+                        <a class="article__edit" href="#"><i class="funtions fa-solid fa-edit"></i></a>
+                        <a class="article__delete" href="#"><i class="funtions fa-solid fa-trash"></i></a>
+                    </div>
+            </article>
+
+            <article class="article">
+                <h2 class="article__tittle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa aliquam
+                    sed
+                    maxime!</h2>
+                <img class="article__image"
+                    src="https://images.pexels.com/photos/2027062/pexels-photo-2027062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="">
+
+                <p class="article__copy">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quibusdam
+                    delectus eum cum repellat
+                    sequi ipsum libero optio itaque in, quod obcaecati dolorum error excepturi quas natus. Perferendis,
+                    omnis facilis.</p>
+
+                <div class="article__info">
+                    <span class="article__author">Topic: <a class="author" href="#">Politics</a></span>
+                    <span class="article__views"><i class="fa-regular fa-eye"></i> 12</span>
+                </div>
+
+                <div class="article__funtions">
+                    <div class="article__funtions">
+                        <a class="article__cta" href="#">Leer Más...</a>
+                        <a class="article__edit" href="#"><i class="funtions fa-solid fa-edit"></i></a>
+                        <a class="article__delete" href="#"><i class="funtions fa-solid fa-trash"></i></a>
+                    </div>
+            </article>
+
+            <article class="article">
+                <h2 class="article__tittle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa aliquam
+                    sed
+                    maxime!</h2>
+                <img class="article__image"
+                    src="https://images.pexels.com/photos/3977908/pexels-photo-3977908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="">
+
+                <p class="article__copy">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quibusdam
+                    delectus eum cum repellat
+                    sequi ipsum libero optio itaque in, quod obcaecati dolorum error excepturi quas natus. Perferendis,
+                    omnis facilis.</p>
+
+                <div class="article__info">
+                    <span class="article__author">Topic: <a class="author" href="#">Gaming</a></span>
+                    <span class="article__views"><i class="fa-regular fa-eye"></i> 12</span>
+                </div>
+
+                <div class="article__funtions">
+                    <div class="article__funtions">
+                        <a class="article__cta" href="#">Leer Más...</a>
+                        <a class="article__edit" href="#"><i class="funtions fa-solid fa-edit"></i></a>
+                        <a class="article__delete" href="#"><i class="funtions fa-solid fa-trash"></i></a>
+                    </div>
+            </article>
+
+
+
+
+        </section>
+
+    </main>
+
+    <script src="https://kit.fontawesome.com/2a76a9117a.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
