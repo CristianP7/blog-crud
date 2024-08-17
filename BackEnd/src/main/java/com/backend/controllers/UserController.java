@@ -19,15 +19,21 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserImpl userService;
+    private final ModelMapper mapper;
 
-    @GetMapping("/searchUser")
-    public ResponseEntity<Page<Users>> searchUser(
+    @GetMapping("/getAllUsers")
+    public ResponseEntity<Page<UsersDTO>> getAllUsers(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "40") int size) throws Exception {
 
         Pageable pageable = PageRequest.of(page, size);
         Page<Users> userPage = userService.readAll(pageable);
-        return new ResponseEntity<>(userPage, HttpStatus.OK);
+        Page<UsersDTO> userDtoPage = userPage.map(this::convertToDto);
+        return new ResponseEntity<>(userDtoPage, HttpStatus.OK);
+    }
+
+    private UsersDTO convertToDto(Users user) {
+        return mapper.map(user, UsersDTO.class);
     }
 
     @GetMapping("/findById/{id}")
