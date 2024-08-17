@@ -7,7 +7,7 @@ import com.backend.service.IArticleTopics;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 @RequiredArgsConstructor
 public class ArticleTopicsImpl extends CrudImpl<ArticleTopics, Integer> implements IArticleTopics {
 

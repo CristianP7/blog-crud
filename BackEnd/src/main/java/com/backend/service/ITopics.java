@@ -1,4 +1,4 @@
 package com.backend.service;
 
-public interface IArticle {
+public interface ITopics {
 }
