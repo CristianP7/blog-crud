@@ -1,7 +1,7 @@
 package com.backend.repository;
 
-import com.backend.model.UsersArticCreated;
+import com.backend.model.UsersArticlesCreated;
 
-public interface IUsersArticCreatedRepo extends IGenericRepo<UsersArticCreated, Integer> {
+public interface IUsersArticCreatedRepo extends IGenericRepo<UsersArticlesCreated, Integer> {
 
 }

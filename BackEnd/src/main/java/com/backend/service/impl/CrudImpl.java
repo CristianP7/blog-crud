@@ -2,6 +2,8 @@ package com.backend.service.impl;
 
 import com.backend.repository.IGenericRepo;
 import com.backend.service.ICrud;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -23,6 +25,11 @@ public abstract class CrudImpl<T, ID> implements ICrud<T, ID> {
     @Override
     public List<T> readAll() throws Exception {
         return getRepo().findAll();
+    }
+
+    @Override
+    public Page<T> readAll(Pageable pageable) throws Exception {
+        return getRepo().findAll(pageable);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.backend.repository;
 
-import com.backend.model.UsersArticEdited;
+import com.backend.model.UsersArticlesEdited;
 
-public interface IUsersArticEdited extends IGenericRepo<UsersArticEdited, Integer> {
+public interface IUsersArticEdited extends IGenericRepo<UsersArticlesEdited, Integer> {
 
 }

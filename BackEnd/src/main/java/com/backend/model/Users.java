@@ -1,5 +1,6 @@
 package com.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,25 +17,25 @@ import java.util.List;
 public class Users {
 
     @Id
-    private int userId;
-    private int roleId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String userName;
     private String firstName;
     private String lastName;
-    private String emailUser;
-    private String passwordUser;
+    private String email;
+    private String password;
 
-    // Relaciones
     @ManyToOne
-    @JoinColumn(name = "roleId", insertable = false, updatable = false)
-    private UserRoles role;  // Un usuario tiene un rol
+    @JoinColumn(name = "role_id")
+    private UserRoles role;
 
     @OneToMany(mappedBy = "user")
-    private List<UsersArticReaded> articlesReaded;  // Un usuario puede leer varios artículos
+    private List<UsersArticlesCreated> articlesCreated;
 
     @OneToMany(mappedBy = "user")
-    private List<UsersArticCreated> articlesCreated;  // Un usuario puede crear varios artículos
+    private List<UsersArticlesEdited> articlesEdited;
 
     @OneToMany(mappedBy = "user")
-    private List<UsersArticEdited> articlesEdited;
+    private List<UsersArticlesReaded> articlesReaded;
 }

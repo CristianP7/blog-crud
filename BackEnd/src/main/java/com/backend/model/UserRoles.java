@@ -1,8 +1,6 @@
 package com.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,11 +16,12 @@ import java.util.List;
 public class UserRoles {
 
     @Id
-    private int userRolesId;
-    private String roleType;
-    private String descriptionRol;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    // Relaciones
+    private String roleType;
+    private String description;
+
     @OneToMany(mappedBy = "role")
     private List<Users> users;
 }

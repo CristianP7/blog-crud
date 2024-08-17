@@ -1,5 +1,6 @@
 package com.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,30 +17,35 @@ import java.util.List;
 public class Articles {
 
     @Id
-    private int articleId;
-    private String imageArticle;
-    private String titleArticle;
-    private int articleContentId;
-    private int topicId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    // Relaciones
-    @OneToOne
-    @JoinColumn(name = "articleContentId", insertable = false, updatable = false)
-    private ArticleContent content;  // Un artículo tiene un contenido
+    private String image;
+    private String title;
+    private String description;
 
     @ManyToOne
-    @JoinColumn(name = "topicId", insertable = false, updatable = false)
-    private Topics topic;  // Un artículo pertenece a un tema
+    @JoinColumn(name = "article_creator")
+    private Users creator;
+
+    @ManyToOne
+    @JoinColumn(name = "article_editor")
+    private Users editor;
+
+    @ManyToOne
+    @JoinColumn(name = "article_content_id")
+    private ArticleContent articleContent;
+
+    @ManyToOne
+    @JoinColumn(name = "topic_id")
+    private Topics topic;
 
     @OneToMany(mappedBy = "article")
-    private List<UsersArticReaded> usersReaded;  // Un artículo puede ser leído por varios usuarios
+    private List<UsersArticlesCreated> usersCreated;
 
     @OneToMany(mappedBy = "article")
-    private List<UsersArticCreated> usersCreated;  // Un artículo puede ser creado por varios usuarios
+    private List<UsersArticlesEdited> usersEdited;
 
     @OneToMany(mappedBy = "article")
-    private List<UsersArticEdited> usersEdited;  // Un artículo puede ser editado por varios usuarios
-
-    @OneToMany(mappedBy = "article")
-    private List<ArticleTopics> articleTopics;
+    private List<UsersArticlesReaded> usersReaded;
 }
