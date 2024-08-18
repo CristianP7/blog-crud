@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html" lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREATINGBLOGS-CRUD</title>
     <!-- CUSTOM STYLESHEET -->
-    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" href="../../CSS/styles.css">
     <!-- ICONSCOUT CDN -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- GOOGLE FONT(MONTSERATE) -->
@@ -16,20 +16,20 @@
 
     <nav>
         <div class="container nav__container">
-            <a href="./index.html" class="nav__logo">CREATINGBLOGS</a>
+            <a href="../../index.html" class="nav__logo">CREATINGBLOGS</a>
             <ul class="nav__items">
-                <li><a href="/CRUD-BLOG-WEBSITE/HTML/nav link html/blog.html">Blog</a></li>
-                <li><a href="/CRUD-BLOG-WEBSITE/HTML/nav link html/about.html">About</a></li>
-                <li><a href="/CRUD-BLOG-WEBSITE/HTML/nav link html/services.html">Services</a></li>
-                <li><a href="/CRUD-BLOG-WEBSITE/HTML/nav link html/contact.html">Contact</a></li>
-                <li><a href="/CRUD-BLOG-WEBSITE/HTML/nav link html/sign-in.html">SignIn</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./sign-in.html">SignIn</a></li>
                 <li class="nav__profile">
                     <div class="avatar">
-                        <img src="./Assets/images/avatar1.jpg">
-                    </div>  
+                        <img src="../../Assets/images/avatar1.jpg">
+                    </div>
                     <ul>
-                        <li><a href="./HTML/nav link html/dashboard.html">Dashboard</a></li>
-                        <li><a href="./HTML/nav link html/logout.html">Logout</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="logout.html">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -40,37 +40,28 @@
     </nav>
     <!-- ======================== END OF NAV ======================== -->
 
-
-    
-    <section class="featured">
-        <div class ="container featured__container">            
-            <div class="post__thumbnail">
-                <img src="./Assets/images/blog1.jpg">
+    <section class="search__bar">
+        <form  class="container search__bar-container" action="">
+            <div>
+                <i class="uil uil-search"></i>
+                <input type="search" name="" placeholder="Search">
+                <button type="submit" class="btn">Go</button> 
             </div>
-            <div class="post__info">
-                <a href="category-posts.html" class="category__button">Wild Life</a>
-                <h2 class="post__info"><a href="post.html">Exploring the World: A Journey</a></h2>
-                <p class="post__body">
-                    There's something magical about watching the sun set on the horizon, and taking the time to appreciate the beauty of nature. From the vibrant colors to the peaceful atmosphere, it's a moment that can leave a lasting impression. That's why we're taking you on a virtual journey around the world to experience some of the most stunning sunsets from different locations.
-                </p>
-                <div class="post__author-avatar">
-                        <img src="./Assets/images/avatar3.jpg">
-                </div>
-                    <div class="post__author-info">
-                        <h5>By: Underemployed</h5>
-                        <small>June 10, 2022 - 07:23</small>
-                    </div>
-                </div>
-        </div>
+            
+        </form>
+        
+
     </section>
-    <!-- ===================END OF FEATURED================-->
+    
+    
+    <!-- ===================END OF SEARCH================-->
 
     <section class="posts">
 
         <div class="container posts__container">
             <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog100.jpg" >
+                  <img src="../../Assets/images/blog100.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Travel</a>
@@ -83,7 +74,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar13.jpg" alt="" />
+                      <img src="../../Assets/images/avatar13.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: James Moriarty</h5>
@@ -95,7 +86,7 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog2.jpg" >
+                  <img src="../../Assets/images/blog2.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Science &amp; Technology</a>
@@ -108,7 +99,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar15.jpg" alt="" />
+                      <img src="../../Assets/images/avatar15.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: Joe Doel</h5>
@@ -120,7 +111,7 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog101.jpg" >
+                  <img src="../../Assets/images/blog101.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Food</a>
@@ -133,7 +124,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar8.jpg" alt="" />
+                      <img src="../../Assets/images/avatar8.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: Ant Ketchup</h5>
@@ -145,10 +136,10 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog18.jpg" >
+                  <img src="../../Assets/images/blog18.jpg" >
                 </div>
                 <div class="post__info">
-                            <a href="category-posts.html" class="category__button">Travel</a>
+                            <a href="../components html/category-posts.html" class="category__button">Travel</a>
                   <h2 class="post__title"><a href="post.html"> Loy Krathong: A Celebration of Water and Light</a></h2>
              
                     <p class="post__body" style="min-height: 100px;">
@@ -158,7 +149,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar4.jpg" alt="" />
+                      <img src="../../Assets/images/avatar4.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: Jane Supper</h5>
@@ -170,7 +161,7 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog17.jpg" >
+                  <img src="../../Assets/images/blog17.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Science &amp; Technology</a>
@@ -185,7 +176,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar9.jpg" alt="" />
+                      <img src="../../Assets/images/avatar9.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: Aster Kennedy </h5>
@@ -197,7 +188,7 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog13.jpg" >
+                  <img src="../../Assets/images/blog13.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Food</a>
@@ -210,7 +201,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar1.jpg" alt="" />
+                      <img src="../../Assets/images/avatar1.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: Ernest Achiever</h5>
@@ -222,7 +213,7 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog20.jpg" >
+                  <img src="../../Assets/images/blog20.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Gaming</a>
@@ -235,7 +226,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar3.jpg" alt="" />
+                      <img src="../../Assets/images/avatar3.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: Gogo PowerRangers</h5>
@@ -247,7 +238,7 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog15.jpg" >
+                  <img src="../../Assets/images/blog15.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Movies</a>
@@ -260,7 +251,7 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar7.jpg" alt="" />
+                      <img src="../../Assets/images/avatar7.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
                       <h5>By: Jo Doe</h5>
@@ -272,7 +263,7 @@
               </article>
                   <article class="post">
                 <div class="post__thumbnail" style="width: 300px; height: 200px;">
-                  <img src="./Assets/images/blog102.jpg" >
+                  <img src="../../Assets/images/blog102.jpg" >
                 </div>
                 <div class="post__info">
                             <a href="category-posts.html" class="category__button">Gaming</a>
@@ -285,16 +276,17 @@
         
                   <div class="post__author">
                                 <div class="post__author-avatar">
-                      <img src="./Assets/images/avatar15.jpg" alt="" />
+                      <img src="../../Assets/images/avatar15.jpg" alt="" />
                     </div>
                     <div class="post__author-info">
-                      <h5>By: Alvaro Prado</h5>
-                      <small>Aug 18, 2024 - 15:55</small>
+                      <h5>By: Joe Doel</h5>
+                      <small>Mar 03, 2023 - 15:55</small>
                     </div>
                   </div>
                   </h3>
                 </div>
               </article>
+
 
 
         </div>
@@ -306,12 +298,12 @@
   =================================================================== -->
   <section class="category__buttons">
     <div class="container category__buttons-container">
-        <a href="category-posts.html"  class="category__button">Wild Life</a>
-        <a href="category-posts.html"  class="category__button">Music</a>
-        <a href="category-posts.html"  class="category__button">Movies</a>
-        <a href="category-posts.html"  class="category__button">Travel</a>
-        <a href="category-posts.html"  class="category__button">Science & Technology</a>
-        <a href="category-posts.html"  class="category__button">Food</a>
+        <a href="category-posts.html" class="category__button">Wild Life</a>
+        <a href="category-posts.html" class="category__button">Music</a>
+        <a href="category-posts.html" class="category__button">Movies</a>
+        <a href="category-posts.html" class="category__button">Travel</a>
+        <a href="category-posts.html" class="category__button">Science & Technology</a>
+        <a href="category-posts.html" class="category__button">Food</a>
     </div>
   </section>
   <!--=======================END OF CATEGORY ===================================-->
@@ -326,7 +318,7 @@
     </div>
     <div class="container footer__container">
         <article>
-            <h4>Categories</h4>
+            <h4>Categotries</h4>
             <ul>
                 <li><a href="">Wild Life</a></li>
                 <li><a href="">Music</a></li>
@@ -377,7 +369,10 @@
         <small>Copyright &copy; UnderEmployed</small>
     </div>
   </footer>
-  <script src="../CRUD-BLOG-WEBSITE/JS/main.js"></script>
+
+
+
+  <script src="/CRUD-BLOG-WEBSITE/JS/main.js"></script>
 </body>
 </html>
 
