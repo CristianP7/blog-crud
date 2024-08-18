@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREATINGBLOGS-CRUD</title>
     <!-- CUSTOM STYLESHEET -->
-    <link rel="stylesheet" href="../../CSS/styles.css">
+    <link rel="stylesheet" href="style.css">
     <!-- ICONSCOUT CDN -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- GOOGLE FONT(MONTSERATE) -->
@@ -14,18 +14,20 @@
 </head>
 <body>
 
+
+
     <nav>
         <div class="container nav__container">
-            <a href="../../index.html" class="nav__logo">CREATINGBLOG</a>
+            <a href="index.html" class="nav__logo">CREATINGBLOGS</a>
             <ul class="nav__items">
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="sign-in.html">SignIn</a></li>
+                <li><a href="signin.html">SignIn</a></li>
                 <li class="nav__profile">
                     <div class="avatar">
-                        <img src="../../Assets/images/avatar1.jpg">
+                        <img src="./images/avatar1.jpg">
                     </div>
                     <ul>
                         <li><a href="dashboard.html">Dashboard</a></li>
@@ -40,9 +42,39 @@
     </nav>
     <!-- ======================== END OF NAV ======================== -->
 
-<section class="empty__page">
-    <h1>Contact Page</h1>
+
+
+<section class="form__section">
+    <div class="container form__section-container">
+        <h2>Add User</h2>
+        <div class="alert__message error">
+            <p>This is an error message</p>
+        </div>
+        <form action="" enctype="multipart/form-data">
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Create Password">
+            <input type="password" placeholder="Confirm Password">
+            <select>
+
+                <option value="0">Author</option>
+                <option value="1">Admin</option>
+
+            </select>
+            <div class="form__control">
+                <label for="avatar">User Avatar</label>
+                <input type="file" id="avatar">
+            </div>
+            <button type="submit" class="btn">Add User</button>
+        </form>
+    </div>
 </section>
+
+
+
+
 
 <footer>
     <div class="footer__socials">
@@ -109,9 +141,8 @@
 
 
 
-  <script src="../../JS/main.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
-
 
 

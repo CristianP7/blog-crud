@@ -6,26 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREATINGBLOGS-CRUD</title>
     <!-- CUSTOM STYLESHEET -->
-    <link rel="stylesheet" href="../../CSS/styles.css">
+    <link rel="stylesheet" href="style.css">
     <!-- ICONSCOUT CDN -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <!-- GOOGLE FONT(MONTSERATE) -->
+    <!-- GOOGLE FONT(MONTSERATE)  -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,800;1,700&display=swap" rel="stylesheet"> 
 </head>
 <body>
 
+
+
     <nav>
         <div class="container nav__container">
-            <a href="../../index.html" class="nav__logo">CREATINGBLOG</a>
+            <a href="index.html" class="nav__logo">CREATINGBLOGS</a>
             <ul class="nav__items">
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="sign-in.html">SignIn</a></li>
+                <li><a href="signin.html">SignIn</a></li>
                 <li class="nav__profile">
                     <div class="avatar">
-                        <img src="../../Assets/images/avatar1.jpg">
+                        <img src="./images/avatar1.jpg">
                     </div>
                     <ul>
                         <li><a href="dashboard.html">Dashboard</a></li>
@@ -40,8 +42,38 @@
     </nav>
     <!-- ======================== END OF NAV ======================== -->
 
-<section class="empty__page">
-    <h1>Contact Page</h1>
+
+
+<section class="form__section">
+    <div class="container form__section-container">
+        <h2>Add Post</h2>
+        <div class="alert__message error">
+            <p>This is an error message</p>
+        </div>
+        <form action="" enctype="multipart/form-data">
+            <input type="text" placeholder="Title">
+            <select >
+                <option value="1">Wild Life</option>
+                <option value="1">Music</option>
+                <option value="1">Website</option>
+                <option value="1">Movies</option>
+                <option value="1">Travel</option>
+                <option value="1">Science & Technology</option>
+                <option value="1">Food</option>
+            </select>
+            <div class="form__control inline">
+                <input type="checkbox" id="is_featured" checked>
+                <label for="is_featured" >Featured</label>
+            </div>
+            <textarea  rows="8" placeholder="Body"></textarea>
+
+            <div class="form__control">
+                <label for="thumbnail">Add Thumbnail</label>
+                <input type="file" id="thumbnail">
+            </div>
+            <button type="submit" class="btn">Add Post</button>
+        </form>
+    </div>
 </section>
 
 <footer>
@@ -109,9 +141,8 @@
 
 
 
-  <script src="../../JS/main.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
-
 
 
