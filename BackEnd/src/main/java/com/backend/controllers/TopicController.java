@@ -1,6 +1,8 @@
 package com.backend.controllers;
 
+import com.backend.model.Articles;
 import com.backend.model.Topics;
+import com.backend.model.dto.ArticlesDTO;
 import com.backend.model.dto.TopicDTO;
 import com.backend.service.impl.TopicsImpl;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +12,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/topics")
+@RequestMapping("/blog/topics")
+@PreAuthorize("permitAll()")
 public class TopicController {
 
     private final TopicsImpl topicService;

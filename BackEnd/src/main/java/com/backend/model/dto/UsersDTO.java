@@ -22,6 +22,8 @@ public class UsersDTO {
     private String firstName;
     private String lastName;
     private String email;
+
+    @JsonIgnore
     private String password; // Dependiendo de si necesitas gestionar la contraseña
 
     private UserRoleDTO role;

@@ -1,11 +1,7 @@
 package com.backend.controllers;
 
-import com.backend.model.Articles;
 import com.backend.model.UserRoles;
-import com.backend.model.Users;
-import com.backend.model.dto.ArticlesDTO;
 import com.backend.model.dto.UserRoleDTO;
-import com.backend.model.dto.UsersDTO;
 import com.backend.service.impl.UserRoleImpl;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -14,14 +10,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/UserRoless")
+@RequestMapping("/blog/userRoles")
+@PreAuthorize("permitAll()")
 public class UserRolesController {
 
     private final UserRoleImpl userRolesService;

@@ -1,13 +1,19 @@
 package com.backend.controllers;
 
 import com.backend.model.Articles;
+import com.backend.model.dto.ArticleContentDTO;
 import com.backend.model.dto.ArticlesDTO;
+import com.backend.service.impl.ArticleContentImpl;
 import com.backend.service.impl.ArticlesImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,10 +22,12 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/Articless")
+@RequestMapping("/blog/articles")
+@PreAuthorize("permitAll()")
 public class ArticlesController {
 
     private final ArticlesImpl articlesService;
+    private final ArticleContentImpl articlesContent;
 
     private final ModelMapper modelMapper;
 
@@ -35,6 +43,17 @@ public class ArticlesController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+    @GetMapping("/topic/{name}")
+    public ResponseEntity<List<ArticlesDTO>> getArticlesByTopicName(@PathVariable String name) {
+        List<Articles> articlesList = articlesService.findByTopicName(name);
+        List<ArticlesDTO> articlesDtoList = articlesList.stream()
+                .map(this::convertDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(articlesDtoList, HttpStatus.OK);
+    }
+
     private ArticlesDTO convertDto(Articles articles){
         return modelMapper.map(articles, ArticlesDTO.class);
     }
@@ -49,10 +68,10 @@ public class ArticlesController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Articles> createArticles(@RequestBody Articles Articles) {
+    public ResponseEntity<Articles> createArticles(@RequestBody Articles articles) {
         try {
-            Articles createdArticles = articlesService.save(Articles);
-            log.info("createdArticles: {}", createdArticles);
+            articlesContent.save(articles.getArticleContent());
+            Articles createdArticles = articlesService.save(articles);
             return new ResponseEntity<>(createdArticles, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
