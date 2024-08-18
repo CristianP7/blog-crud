@@ -28,14 +28,16 @@ public class ArticlesController {
         try {
             List<Articles> articles = articlesService.readAll();
             List<ArticlesDTO> articleDTOs = articles.stream()
-                    .map(article -> modelMapper.map(article, ArticlesDTO.class))
-                    .collect(Collectors.toList());
+                    .map(this::convertDto)
+                    .toList();
             return new ResponseEntity<>(articleDTOs, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    private ArticlesDTO convertDto(Articles articles){
+        return modelMapper.map(articles, ArticlesDTO.class);
+    }
     @GetMapping("/findById/{id}")
     public ResponseEntity<Articles> getArticlesById(@PathVariable int id) {
         try {

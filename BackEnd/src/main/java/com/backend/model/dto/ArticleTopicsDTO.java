@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleTopicsDTO {
+
     private int articleTopicsId;
     private int topicId;
     private int articleId;

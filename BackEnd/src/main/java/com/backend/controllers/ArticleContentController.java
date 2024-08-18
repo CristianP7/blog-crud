@@ -1,8 +1,10 @@
 package com.backend.controllers;
 
 import com.backend.model.ArticleContent;
+import com.backend.model.dto.ArticleContentDTO;
 import com.backend.service.impl.ArticleContentImpl;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,15 +18,21 @@ import org.springframework.web.bind.annotation.*;
 public class ArticleContentController {
 
     private final ArticleContentImpl articleContentService;
+    private final ModelMapper mapper;
 
     @GetMapping("/searchArticleContents")
-    public ResponseEntity<Page<ArticleContent>> searchArticleContents(
+    public ResponseEntity<Page<ArticleContentDTO>> searchArticleContents(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "40") int size) throws Exception {
 
         Pageable pageable = PageRequest.of(page, size);
         Page<ArticleContent> articleContentPage = articleContentService.readAll(pageable);
-        return new ResponseEntity<>(articleContentPage, HttpStatus.OK);
+        Page<ArticleContentDTO> articleDto = articleContentPage.map(this::converDto);
+        return new ResponseEntity<>(articleDto, HttpStatus.OK);
+    }
+
+    private ArticleContentDTO converDto(ArticleContent article){
+        return mapper.map(article, ArticleContentDTO.class);
     }
 
     @GetMapping("/findById/{id}")

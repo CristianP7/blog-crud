@@ -1,8 +1,10 @@
 package com.backend.controllers;
 
 import com.backend.model.Topics;
+import com.backend.model.dto.TopicDTO;
 import com.backend.service.impl.TopicsImpl;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,16 +19,22 @@ public class TopicController {
 
     private final TopicsImpl topicService;
 
+    private final ModelMapper mapper;
+
     @GetMapping("/searchTopics")
-    public ResponseEntity<Page<Topics>> searchTopics(
+    public ResponseEntity<Page<TopicDTO>> searchTopics(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "40") int size) throws Exception {
 
         Pageable pageable = PageRequest.of(page, size);
         Page<Topics> topicPage = topicService.readAll(pageable);
-        return new ResponseEntity<>(topicPage, HttpStatus.OK);
+        Page<TopicDTO> topicDTOS = topicPage.map(this::convertToDto);
+        return new ResponseEntity<>(topicDTOS, HttpStatus.OK);
     }
 
+    private TopicDTO convertToDto(Topics topic) {
+        return mapper.map(topic, TopicDTO.class);
+    }
     @GetMapping("/findById/{id}")
     public ResponseEntity<Topics> getTopicById(@PathVariable int id) {
         try {

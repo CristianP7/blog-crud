@@ -1,6 +1,9 @@
 package com.backend.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleContentDTO {
-    private int articleContentId;
-    private int articleId;
-    private String contentArticle;
-    private String descriptionArticle;
+    private Long id;
+    private String content;
+
     @JsonBackReference
+    @JsonIgnore// Indica que esta es la parte 'hija' de la relación
     private ArticlesDTO article;
 }
