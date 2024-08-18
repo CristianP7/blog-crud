@@ -22,6 +22,5 @@ public class ArticleContent {
     @JoinColumn(name = "article_id")
     private Articles article;
 
-    @Lob // Utilizamos @Lob para almacenar contenido grande.
     private String content;
 }
