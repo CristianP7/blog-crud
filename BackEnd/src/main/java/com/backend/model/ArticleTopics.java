@@ -18,6 +18,7 @@ public class ArticleTopics {
 
     @Id
     private int articleTopicsId;
+
     private int topicId;
     private int articleId;
 

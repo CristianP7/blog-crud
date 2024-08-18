@@ -2,6 +2,7 @@ package com.backend.model.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
@@ -13,18 +14,27 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class UsersDTO {
-    private int userId;
-    private int roleId;
+
+    private Long id;
     private String userName;
     private String firstName;
     private String lastName;
-    private String emailUser;
-    private String passwordUser;
+    private String email;
+    private String password; // Dependiendo de si necesitas gestionar la contraseña
+
     private UserRoleDTO role;
 
-    private List<UsersArticReadedDTO> articlesReaded;
-    private List<UsersArticCreatedDTO> articlesCreated;
-    private List<UsersArticEditedDTO> articlesEdited;
+    @JsonManagedReference
+    @JsonIgnore// Relación para artículos creados
+    private List<UsersArticlesCreatedDTO> articlesCreated;
+
+    @JsonManagedReference // Relación para artículos editados
+    @JsonIgnore
+    private List<UsersArticlesEditedDTO> articlesEdited;
+
+    @JsonManagedReference // Relación para artículos leídos
+    @JsonIgnore
+    private List<UsersArticlesReadedDTO> articlesReaded;
 }
