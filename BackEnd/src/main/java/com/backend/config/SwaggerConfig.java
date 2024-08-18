@@ -16,8 +16,8 @@ import org.springframework.http.HttpHeaders;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "API SCHOOL",
-                description = "Api Rest of school",
+                title = "API BLOG",
+                description = "Api Rest of BLOG",
                 termsOfService = "example.com",
                 version = "1.0.1",
                 contact = @Contact(
@@ -34,10 +34,6 @@ import org.springframework.http.HttpHeaders;
                 @Server(
                         description = "DEV SERVER",
                         url = "http://localhost:8080"
-                ),
-                @Server(
-                        description = "PROD SERVER",
-                        url = "http://localhost:8084"
                 )
         },
         security = @SecurityRequirement(
