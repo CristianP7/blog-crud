@@ -30,6 +30,9 @@ public class UserImpl extends CrudImpl<Users, Integer> implements IUser {
                         .passwordEncoder()
                         .encode(users.getPassword());
         users.setPassword(encode);
+        if(users.getRole().getId() == null || users.getRole().getId() == 0){
+            users.getRole().setId(2L);
+        }
         return repo.save(users);
     }
 

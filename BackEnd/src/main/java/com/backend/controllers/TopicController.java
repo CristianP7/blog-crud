@@ -1,8 +1,6 @@
 package com.backend.controllers;
 
-import com.backend.model.Articles;
 import com.backend.model.Topics;
-import com.backend.model.dto.ArticlesDTO;
 import com.backend.model.dto.TopicDTO;
 import com.backend.service.impl.TopicsImpl;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/blog/topics")
-@PreAuthorize("permitAll()")
 public class TopicController {
 
     private final TopicsImpl topicService;
@@ -41,6 +36,7 @@ public class TopicController {
     private TopicDTO convertToDto(Topics topic) {
         return mapper.map(topic, TopicDTO.class);
     }
+
     @GetMapping("/findById/{id}")
     public ResponseEntity<Topics> getTopicById(@PathVariable int id) {
         try {
@@ -51,6 +47,7 @@ public class TopicController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<Topics> createTopic(@RequestBody Topics topic) {
         try {
@@ -61,6 +58,7 @@ public class TopicController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<Topics> updateTopic(@PathVariable int id, @RequestBody Topics topic) {
         try {
@@ -71,6 +69,7 @@ public class TopicController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<Void> deleteTopic(@PathVariable int id) {
         try {

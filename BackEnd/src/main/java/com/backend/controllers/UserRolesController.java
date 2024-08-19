@@ -18,13 +18,14 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/blog/userRoles")
-@PreAuthorize("permitAll()")
+@PreAuthorize("hasRole('ADMIN')")
 public class UserRolesController {
 
     private final UserRoleImpl userRolesService;
     private final ModelMapper modelMapper;
 
-    @GetMapping("/searchUserRoless")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/searchUserRoles")
     public ResponseEntity<Page<UserRoleDTO>> searchUserRoless(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "40") int size) throws Exception {
@@ -43,6 +44,7 @@ public class UserRolesController {
         return modelMapper.map(users, UserRoleDTO.class);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/findById/{id}")
     public ResponseEntity<UserRoles> getUserRolesById(@PathVariable int id) {
         try {
@@ -53,6 +55,7 @@ public class UserRolesController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<UserRoles> createUserRoles(@RequestBody UserRoles UserRoles) {
         try {
@@ -63,6 +66,7 @@ public class UserRolesController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<UserRoles> updateUserRoles(@PathVariable int id, @RequestBody UserRoles UserRoles) {
         try {
@@ -73,6 +77,7 @@ public class UserRolesController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<Void> deleteUserRoles(@PathVariable int id) {
         try {
@@ -83,11 +88,4 @@ public class UserRolesController {
         }
     }
 
-//    private UserRolesDTO convertToDto(UserRoless obj) {
-//        return mapper.map(obj, UserRolesDTO.class);
-//    }
-//
-//    private UserRoless convertToEntity(UserRolesDTO dto) {
-//        return mapper.map(dto, UserRoless.class);
-//    }
 }

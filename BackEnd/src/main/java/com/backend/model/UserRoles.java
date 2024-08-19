@@ -20,6 +20,7 @@ public class UserRoles {
     private Long id;
 
     private String roleType;
+
     private String description;
 
     @OneToMany(mappedBy = "role")

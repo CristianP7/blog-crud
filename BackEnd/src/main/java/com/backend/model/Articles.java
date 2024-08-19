@@ -21,6 +21,8 @@ public class Articles {
     private Long id;
 
     private String image;
+
+    @Column(nullable = false)
     private String title;
     private String description;
 

@@ -22,7 +22,11 @@ public class Users {
 
     @Column(length = 60, nullable = false, unique = true)
     private String userName;
+
+    @Column(length = 60, nullable = false)
     private String firstName;
+
+    @Column(length = 60, nullable = false)
     private String lastName;
 
     @Column(length = 100, nullable = false, unique = true)

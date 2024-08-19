@@ -6,6 +6,7 @@ import com.backend.model.UsersArticlesEdited;
 import com.backend.model.UsersArticlesReaded;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -17,15 +18,21 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ArticlesDTO {
 
     private Long id;
+
     private String title;
     private String description;
     private String image;
 
+//    @JsonIgnore
     private UsersDTO creator;
+
+//    @JsonIgnore
     private UsersDTO editor;
+
     @JsonIgnore
     private TopicDTO topic;
 

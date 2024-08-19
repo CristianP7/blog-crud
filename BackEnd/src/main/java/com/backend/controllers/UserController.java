@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/blog/user")
-@PreAuthorize("permitAll()")
+@PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
     private final UserImpl userService;
@@ -38,6 +38,7 @@ public class UserController {
         return mapper.map(user, UsersDTO.class);
     }
 
+    @PreAuthorize("permitAll()")
     @GetMapping("/findById/{id}")
     public ResponseEntity<Users> getUserById(@PathVariable int id) {
         try {
@@ -48,6 +49,7 @@ public class UserController {
         }
     }
 
+    @PreAuthorize("permitAll()")
     @PostMapping(value = "/create", consumes = "application/json")
     public ResponseEntity<Users> createUser(@RequestBody Users users) {
         try {
@@ -57,7 +59,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<Users> updateUser(@PathVariable int id, @RequestBody Users users) {
         try {
@@ -68,6 +70,7 @@ public class UserController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable int id) {
         try {

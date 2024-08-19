@@ -67,10 +67,11 @@ public class ArticlesController {
         return modelMapper.map(articles, ArticlesDTO.class);
     }
     @GetMapping("/findById/{id}")
-    public ResponseEntity<Articles> getArticlesById(@PathVariable int id) {
+    public ResponseEntity<ArticlesDTO> getArticlesById(@PathVariable int id) {
         try {
             Articles Articles = articlesService.readById(id);
-            return new ResponseEntity<>(Articles, HttpStatus.OK);
+            ArticlesDTO articlesDTO = convertDto(Articles);
+            return new ResponseEntity<>(articlesDTO, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

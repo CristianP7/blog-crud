@@ -22,5 +22,6 @@ public class ArticleContent {
     @JoinColumn(name = "article_id")
     private Articles article;
 
+    @Column(nullable = false)
     private String content;
 }
