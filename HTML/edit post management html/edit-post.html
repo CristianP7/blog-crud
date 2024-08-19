@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNDEREMPLOYED</title>
+    <title>CREATINGBLOGS-CRUD</title>
     <!-- CUSTOM STYLESHEET -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../CSS/styles.css">
     <!-- ICONSCOUT CDN -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- GOOGLE FONT(MONTSERATE) -->
@@ -18,7 +18,7 @@
 
     <nav>
         <div class="container nav__container">
-            <a href="index.html" class="nav__logo">UNDEREMPLOYED</a>
+            <a href="../../index.html" class="nav__logo">CREATINGBLOGS</a>
             <ul class="nav__items">
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
@@ -45,21 +45,35 @@
 
 
 <section class="form__section">
-
     <div class="container form__section-container">
-        <h2>Edit Category</h2>
-        <form action="">
-            <input type="text" placeholder="Title">
-            <textarea  rows="4" placeholder="Description"></textarea>
+        <h2>Edit Post</h2>
 
-            <button type="submit" class="btn">Update Category</button>
+        <form action="" enctype="multipart/form-data">
+            <input type="text" placeholder="Title">
+            <select >
+                <option value="1">Wild Life</option>
+                <option value="1">Music</option>
+                <option value="1">Website</option>
+                <option value="1">Movies</option>
+                <option value="1">Travel</option>
+                <option value="1">Science & Technology</option>
+                <option value="1">Food</option>
+            </select>
+            <div class="form__control inline">
+                <input type="checkbox" id="is_featured" checked>
+                <label for="is_featured" >Featured</label>
+            </div>
+            <textarea  rows="8" placeholder="Body"></textarea>
+
+            <div class="form__control">
+                <label for="thumbnail">Change Thumbnail</label>
+                <input type="file" id="thumbnail">
+            </div>
+            <button type="submit" class="btn">Update Post</button>
         </form>
     </div>
-
-
-    
-
 </section>
+
 <footer>
     <div class="footer__socials">
         <a href="https://www.youtube.com/channel/UCvtrqmex9f7J9hxZfmhoHRw" target="_blank"><i class="uil uil-youtube"></i></a>
@@ -125,7 +139,7 @@
 
 
 
-  <script src="./main.js"></script>
+  <script src="../../JS/main.js"></script>
 </body>
 </html>
 
