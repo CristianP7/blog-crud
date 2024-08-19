@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserRoleDTO {
 
-    private Long id;
+    private Integer id;
 
     private String roleType;
     private String description;

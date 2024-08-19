@@ -21,7 +21,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ArticlesDTO {
 
-    private Long id;
+    private Integer id;
 
     private String title;
     private String description;

@@ -15,7 +15,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UsersDTO {
 
-    private Long id;
+    private Integer id;
     private String userName;
     private String firstName;
     private String lastName;

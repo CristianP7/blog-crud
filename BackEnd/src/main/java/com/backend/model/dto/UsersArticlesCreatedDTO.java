@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UsersArticlesCreatedDTO {
-    private Long id;
+    private Integer id;
 
     @JsonBackReference // Indica que esta es la parte 'hija' de la relación
     private UsersDTO user;

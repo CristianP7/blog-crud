@@ -4,6 +4,7 @@ import com.backend.model.Users;
 import com.backend.model.dto.UsersDTO;
 import com.backend.service.impl.UserImpl;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/blog/user")
@@ -23,6 +25,7 @@ public class UserController {
     private final UserImpl userService;
     private final ModelMapper mapper;
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/getAllUsers")
     public ResponseEntity<Page<UsersDTO>> getAllUsers(
             @RequestParam(defaultValue = "0") int page,
@@ -59,11 +62,13 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/update/{id}")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Users> updateUser(@PathVariable int id, @RequestBody Users users) {
         try {
             Users updatedUsers = userService.update(users, id);
+            log.info("updatedUsers: " + updatedUsers);
             return new ResponseEntity<>(updatedUsers, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

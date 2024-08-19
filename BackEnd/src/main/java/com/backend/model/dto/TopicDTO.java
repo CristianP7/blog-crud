@@ -15,7 +15,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TopicDTO {
 
-    private Long id;
+    private Integer id;
     private String name;
 
     @JsonManagedReference // Parte 'padre' de la relación

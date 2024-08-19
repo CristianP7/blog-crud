@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class ArticleTopics {
 
     @Id
-    private int articleTopicsId;
+    private Integer articleTopicsId;
 
     private int topicId;
     private int articleId;

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UsersArticlesReadedDTO {
 
-    private Long id;
+    private Integer id;
 
     @JsonBackReference // Indica que esta es la parte 'hija' de la relación
     private UsersDTO user;

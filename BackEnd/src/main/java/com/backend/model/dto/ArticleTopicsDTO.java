@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ArticleTopicsDTO {
 
-    private int articleTopicsId;
-    private int topicId;
-    private int articleId;
+    private Integer articleTopicsId;
+    private Integer topicId;
+    private Integer articleId;
     private TopicDTO topic;
 
     @JsonBackReference

@@ -5,6 +5,7 @@ import com.backend.service.ICrud;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 public abstract class CrudImpl<T, ID> implements ICrud<T, ID> {
@@ -18,7 +19,14 @@ public abstract class CrudImpl<T, ID> implements ICrud<T, ID> {
 
     @Override
     public T update(T t, ID id) throws Exception {
-        //falta trabajar la asociacion con id
+
+        Class<?> clazz = t.getClass();
+        String className = t.getClass().getSimpleName();
+        String methodName = "setId" + className;
+        Method setIdMethod = clazz.getMethod(methodName, id.getClass());
+        setIdMethod.invoke(t, id);
+
+        getRepo().findById(id).orElseThrow(() -> new Exception("Id Not Found"));
         return getRepo().save(t);
     }
 
@@ -35,11 +43,13 @@ public abstract class CrudImpl<T, ID> implements ICrud<T, ID> {
     @Override
     public T readById(ID id) throws Exception {
         //orElse temporal
-        return getRepo().findById(id).orElse(null);
+        return getRepo().findById(id).orElseThrow(() -> new Exception("Id Not Found"));
+
     }
 
     @Override
     public void delete(ID id) throws Exception {
+        getRepo().findById(id).orElseThrow(() -> new Exception("Id Not Found"));
         getRepo().deleteById(id);
     }
 }
