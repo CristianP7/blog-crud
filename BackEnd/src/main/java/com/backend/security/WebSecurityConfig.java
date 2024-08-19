@@ -65,6 +65,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/blog/user/create").permitAll()
                         .requestMatchers("/blog/articles/create").permitAll()
                         .requestMatchers("/blog/articles/all").permitAll()
+                        .requestMatchers("/blog/articles/search").permitAll()
                         .requestMatchers("/blog/topics/create").permitAll()
                         .requestMatchers("/blog/articleContents/create").permitAll()
                         .requestMatchers("/blog/login").permitAll()

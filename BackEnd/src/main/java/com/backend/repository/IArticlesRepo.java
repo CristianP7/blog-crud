@@ -9,4 +9,5 @@ public interface IArticlesRepo extends IGenericRepo<Articles, Integer> {
 //    List<Articles> findByCreatorAndId(Long id);
 
     List<Articles> findByTopicName(String name);
+    List<Articles> findByTitleContainsOrArticleContent_ContentContains(String title, String content);
 }

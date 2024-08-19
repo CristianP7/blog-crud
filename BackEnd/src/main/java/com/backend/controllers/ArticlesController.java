@@ -54,6 +54,15 @@ public class ArticlesController {
         return new ResponseEntity<>(articlesDtoList, HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<ArticlesDTO>> getArticlesBySearchTerm(@RequestParam String searchTerm) {
+        List<Articles> articlesList = articlesService.findByTitleContainsOrArticleContent_ContentContains(searchTerm, searchTerm);
+        List<ArticlesDTO> articlesDtoList = articlesList.stream()
+                .map(this::convertDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(articlesDtoList, HttpStatus.OK);
+    }
+
     private ArticlesDTO convertDto(Articles articles){
         return modelMapper.map(articles, ArticlesDTO.class);
     }
@@ -77,6 +86,7 @@ public class ArticlesController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Articles> updateArticles(@PathVariable int id, @RequestBody Articles Articles) {
