@@ -4,7 +4,7 @@ import com.backend.model.Articles;
 
 import java.util.List;
 
-public interface IArticle {
+public interface IArticle extends ICrud<Articles, Integer> {
 
 //    List<Articles> findByCreatorAndId(Long id);
 

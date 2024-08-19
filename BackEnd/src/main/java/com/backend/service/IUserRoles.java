@@ -1,4 +1,7 @@
 package com.backend.service;
 
-public interface IUserRoles {
+import com.backend.model.UserRoles;
+
+public interface IUserRoles extends ICrud<UserRoles, Integer> {
+
 }

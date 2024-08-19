@@ -1,5 +1,7 @@
 package com.backend.service;
 
-public interface IArticleContent {
+import com.backend.model.ArticleContent;
+
+public interface IArticleContent extends ICrud<ArticleContent, Integer> {
 
 }

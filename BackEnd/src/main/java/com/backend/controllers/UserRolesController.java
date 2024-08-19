@@ -2,6 +2,7 @@ package com.backend.controllers;
 
 import com.backend.model.UserRoles;
 import com.backend.model.dto.UserRoleDTO;
+import com.backend.service.IUserRoles;
 import com.backend.service.impl.UserRoleImpl;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -21,7 +22,7 @@ import java.util.List;
 @PreAuthorize("hasRole('ADMIN')")
 public class UserRolesController {
 
-    private final UserRoleImpl userRolesService;
+    private final IUserRoles userRolesService;
     private final ModelMapper modelMapper;
 
     @PreAuthorize("hasAuthority('ADMIN')")

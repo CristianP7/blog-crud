@@ -30,4 +30,20 @@ public class ArticlesImpl extends CrudImpl<Articles, Integer> implements IArticl
         return repo.findByTitleContainsOrArticleContent_ContentContains(title, content);
     }
 
+    @Override
+    public Articles update(Articles articles, Integer integer) throws Exception {
+        return getRepo().findById(integer)
+                .map(articlesDB -> {
+                    articlesDB.setTitle(articles.getTitle());
+                    articlesDB.setArticleContent(articles.getArticleContent());
+                    articlesDB.setTopic(articles.getTopic());
+                    articlesDB.setDescription(articles.getDescription());
+                    articlesDB.setImage(articles.getImage());
+                    articlesDB.setCreator(articles.getCreator());
+                    articlesDB.setEditor(articles.getEditor());
+                    return articlesDB;
+                        })
+                .orElseThrow(() -> new Exception("Article not found"));
+
+    }
 }

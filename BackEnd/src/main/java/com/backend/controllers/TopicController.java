@@ -2,6 +2,7 @@ package com.backend.controllers;
 
 import com.backend.model.Topics;
 import com.backend.model.dto.TopicDTO;
+import com.backend.service.ITopics;
 import com.backend.service.impl.TopicsImpl;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/blog/topics")
 public class TopicController {
 
-    private final TopicsImpl topicService;
+    private final ITopics topicService;
 
     private final ModelMapper mapper;
 

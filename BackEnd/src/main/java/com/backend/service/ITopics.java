@@ -2,8 +2,6 @@ package com.backend.service;
 
 import com.backend.model.Topics;
 
-import java.util.List;
-
-public interface ITopics {
+public interface ITopics extends ICrud<Topics, Integer> {
 
 }

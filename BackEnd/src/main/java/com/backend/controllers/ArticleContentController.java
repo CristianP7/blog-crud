@@ -2,6 +2,7 @@ package com.backend.controllers;
 
 import com.backend.model.ArticleContent;
 import com.backend.model.dto.ArticleContentDTO;
+import com.backend.service.IArticleContent;
 import com.backend.service.impl.ArticleContentImpl;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @PreAuthorize("permitAll()")
 public class ArticleContentController {
 
-    private final ArticleContentImpl articleContentService;
+    private final IArticleContent articleContentService;
     private final ModelMapper mapper;
 
     @GetMapping("/searchArticleContents")

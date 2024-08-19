@@ -18,4 +18,5 @@ public class UserRoleImpl extends CrudImpl<UserRoles, Integer> implements IUserR
     protected IGenericRepo<UserRoles, Integer> getRepo() {
         return repo;
     }
+
 }

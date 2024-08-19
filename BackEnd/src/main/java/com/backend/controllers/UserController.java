@@ -2,6 +2,7 @@ package com.backend.controllers;
 
 import com.backend.model.Users;
 import com.backend.model.dto.UsersDTO;
+import com.backend.service.IUser;
 import com.backend.service.impl.UserImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
 @PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
-    private final UserImpl userService;
+    private final IUser userService;
     private final ModelMapper mapper;
 
     @PreAuthorize("hasAuthority('ADMIN')")

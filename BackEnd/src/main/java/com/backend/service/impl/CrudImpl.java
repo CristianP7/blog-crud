@@ -21,11 +21,9 @@ public abstract class CrudImpl<T, ID> implements ICrud<T, ID> {
     public T update(T t, ID id) throws Exception {
 
         Class<?> clazz = t.getClass();
-        String className = t.getClass().getSimpleName();
-        String methodName = "setId" + className;
+        String methodName = "setId";
         Method setIdMethod = clazz.getMethod(methodName, id.getClass());
         setIdMethod.invoke(t, id);
-
         getRepo().findById(id).orElseThrow(() -> new Exception("Id Not Found"));
         return getRepo().save(t);
     }
