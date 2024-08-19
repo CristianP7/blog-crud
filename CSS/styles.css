@@ -1,31 +1,41 @@
 :root {
-    --color-primary: #6f6af8;
-    --color-primary-light: hsl(242, 91%, 69%, 18%);
-    --color-primary-variant: #5854c7;
-    --color-red: #da0f3f;
-    --color-red-light: hsl(346, 87%, 46%, 15%);
-    --color-green: #00c476;
-    --color-green-light: hsl(156, 100%, 38%, 15%);
-    --color-gray-900: #1e1e66;
-    --color-gray-700: #2d2b7c;
-    --color-gray-300: rgba(242, 242, 254, 0.3);
-    --color-gray-200: rgba(242, 242, 254, 0.7);
-    --color-white: #f2f2fe;
-    --color-bg: #0f0f3e;
-  
-    --transition: all 300ms ease;
-  
-    --container-width-lg: 74%;
-    --container-width-md: 88%;
-    --form-width: 40%;
-  
-    --card-border-radius-1: 0.3rem;
-    --card-border-radius-2: 0.5rem;
-    --card-border-radius-3: 0.8rem;
-    --card-border-radius-4: 2rem;
-    --card-border-radius-5: 5rem;
-  }
-  
+  --color-primary: #FF4081; /* Rosa fuerte */
+  --color-primary-light: hsl(330, 100%, 71%, 18%);
+  --color-primary-variant: #E91E63; /* Rosa más oscuro */
+
+  --color-secondary: #448AFF; /* Azul brillante */
+  --color-secondary-light: hsl(217, 92%, 70%, 18%);
+  --color-secondary-variant: #2979FF; /* Azul más oscuro */
+
+  --color-accent: #FFD740; /* Amarillo vibrante */
+  --color-accent-light: hsl(48, 100%, 75%, 15%);
+
+  --color-success: #69F0AE; /* Verde brillante */
+  --color-success-light: hsl(145, 85%, 70%, 15%);
+
+  --color-warning: #FFAB00; /* Naranja dorado */
+  --color-warning-light: hsl(40, 100%, 60%, 15%);
+
+  --color-gray-900: #121212; /* Gris muy oscuro */
+  --color-gray-700: #2C2C2C; /* Gris oscuro */
+  --color-gray-300: rgba(80, 80, 80, 0.3); /* Gris translúcido medio */
+  --color-gray-200: rgba(150, 150, 150, 0.7); /* Gris translúcido claro */
+  --color-white: #F5F5F5; /* Blanco suave */
+  --color-bg: #1C1C1C; /* Fondo gris oscuro */
+--color-red:#d50a4e; 
+  --transition: all 300ms ease;
+
+  --container-width-lg: 74%;
+  --container-width-md: 88%;
+  --form-width: 40%;
+
+  --card-border-radius-1: 0.3rem;
+  --card-border-radius-2: 0.5rem;
+  --card-border-radius-3: 0.8rem;
+  --card-border-radius-4: 2rem;
+  --card-border-radius-5: 5rem;
+}
+
   /* #region GENERAL */
   
   * {
