@@ -20,13 +20,14 @@ public class ArticlesImpl extends CrudImpl<Articles, Integer> implements IArticl
         return repo;
     }
 
-//    @Override
-//    public List<Articles> findByCreatorAndId(Long id) {
-//        return repo.findByCreatorAndId(id);
-//    }
-
     @Override
     public List<Articles> findByTopicName(String name) {
         return repo.findByTopicName(name);
     }
+
+    @Override
+    public List<Articles> findByTitleContainsOrArticleContent_ContentContains(String title, String content) {
+        return repo.findByTitleContainsOrArticleContent_ContentContains(title, content);
+    }
+
 }
